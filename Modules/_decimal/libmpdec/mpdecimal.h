@@ -181,7 +181,7 @@ typedef int64_t mpd_ssize_t;
 
 
 /* BEGIN CONFIG_32 */
-#elif defined(CONFIG_32)
+#elif defined(CONFIG_32) || defined(CONFIG_ARM)
 /* types for modular and base arithmetic */
 #define MPD_UINT_MAX UINT32_MAX
 #define MPD_BITS_PER_UINT 32
