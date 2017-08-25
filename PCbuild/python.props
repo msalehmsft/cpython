@@ -10,6 +10,7 @@
 
     We set BasePlatformToolset for ICC's benefit, it's otherwise ignored.
     -->
+    <BasePlatformToolset Condition="'$(BasePlatformToolset)' == '' and '$(VCTargetsPath15)' != ''">v141</BasePlatformToolset>
     <BasePlatformToolset Condition="'$(BasePlatformToolset)' == '' and '$(VCTargetsPath14)' != ''">v140</BasePlatformToolset>
     <BasePlatformToolset Condition="'$(BasePlatformToolset)' == '' and '$(VCTargetsPath12)' != ''">v120</BasePlatformToolset>
     <BasePlatformToolset Condition="'$(BasePlatformToolset)' == '' and '$(VCTargetsPath11)' != ''">v110</BasePlatformToolset>
@@ -65,6 +66,8 @@
     
     <!-- Full path of the resulting python.exe binary -->
     <PythonExe Condition="'$(PythonExe)' == ''">$(BuildPath)python$(PyDebugExt).exe</PythonExe>
+    <PythonExe Condition="'$(ArchName)' == 'ARM'">$(BuildPath)..\Win32\python$(PyDebugExt).exe</PythonExe>
+
   </PropertyGroup>
   
   <PropertyGroup Condition="$(DefaultWindowsSDKVersion) == ''">
