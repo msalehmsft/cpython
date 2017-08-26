@@ -32,6 +32,7 @@ Modules/Setup.config
 Modules/Setup.local
 Modules/config.c
 Modules/ld_so_aix
+obj/
 Programs/_freeze_importlib
 Programs/_freeze_importlib.exe
 Programs/_testembed
@@ -50,6 +51,7 @@ PC/*/*.suo
 PC/*/Win32-temp-*
 PC/*/x64-temp-*
 PC/*/amd64
+PC/obj/
 PCbuild/*.user
 PCbuild/*.suo
 PCbuild/*.*sdf
@@ -59,6 +61,7 @@ PCbuild/*.VC.db
 PCbuild/*.VC.opendb
 PCbuild/.vs/
 PCbuild/amd64/
+PCbuild/arm/
 PCbuild/obj/
 PCbuild/win32/
 .purify
