@@ -114,9 +114,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>cabinet.lib;msi.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'!='ARM'">cabinet.lib;msi.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <BaseAddress>0x1D160000</BaseAddress>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

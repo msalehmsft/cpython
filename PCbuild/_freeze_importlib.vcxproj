@@ -113,7 +113,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -142,7 +142,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <Target Name="_RebuildImportLib">
+  <Target  Condition="'$(Platform)'!='ARM'" Name="_RebuildImportLib">
     <Exec Command="&quot;$(TargetPath)&quot; &quot;%(None.FullPath)&quot; &quot;%(None.IntFile)&quot;" />
     <PropertyGroup>
       <_OldContent Condition="Exists($(OutTargetPath))">
@@ -157,9 +157,9 @@
     <Warning Text="@(_Updated->'%(Filename)%(Extension)',', ') updated. You will need to rebuild pythoncore to see the changes." Condition="'@(_Updated)' != '' and $(Configuration) == 'Debug'" />
     <Error Text="@(_Updated->'%(Filename)%(Extension)',', ') updated. You will need to rebuild pythoncore to see the changes." Condition="'@(_Updated)' != '' and $(Configuration) == 'Release'" />
   </Target>
-  <Target Name="RebuildImportLib" AfterTargets="AfterBuild" Condition="$(Configuration) == 'Debug' or $(Configuration) == 'Release'" DependsOnTargets="_RebuildImportLib">
+  <Target Name="RebuildImportLib" AfterTargets="AfterBuild" Condition="'$(Platform)'!='ARM' and ($(Configuration) == 'Debug' or $(Configuration) == 'Release')" DependsOnTargets="_RebuildImportLib">
   </Target>
-  <Target Name="_CleanImportLib" BeforeTargets="CoreClean">
+  <Target  Condition="'$(Platform)'!='ARM'" Name="_CleanImportLib" BeforeTargets="CoreClean">
     <ItemGroup>
       <Clean Include="$(IntDir)importlib.g.h" />
       <Clean Include="$(IntDir)importlib_external.g.h" />

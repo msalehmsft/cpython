@@ -108,8 +108,12 @@ winsound_PlaySound_impl(PyObject *module, PyObject *sound, int flags)
     }
 
 
-    Py_BEGIN_ALLOW_THREADS
+	Py_BEGIN_ALLOW_THREADS
+#if defined(_M_ARM)
+	ok = 0;
+#else
     ok = PlaySoundW(wsound, NULL, flags);
+#endif
     Py_END_ALLOW_THREADS
     if (view.obj) {
         PyBuffer_Release(&view);

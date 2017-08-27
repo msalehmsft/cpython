@@ -117,6 +117,7 @@
       <AdditionalIncludeDirectories>..\Modules\_ctypes\libffi_msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <AdditionalDependencies>onecoreuap.lib;advapi32.lib;OleAut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <BaseAddress>0x1D1A0000</BaseAddress>
       <AdditionalOptions>/EXPORT:DllGetClassObject,PRIVATE /EXPORT:DllCanUnloadNow,PRIVATE %(AdditionalOptions)</AdditionalOptions>
       <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
@@ -143,6 +144,7 @@
     <ClCompile Include="..\Modules\_ctypes\stgdict.c" />
     <ClCompile Include="..\Modules\_ctypes\libffi_msvc\win32.c">
       <ExcludedFromBuild Condition="'$(Platform)'=='x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Platform)'=='ARM'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

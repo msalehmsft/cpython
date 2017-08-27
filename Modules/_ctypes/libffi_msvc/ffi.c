@@ -186,7 +186,8 @@ ffi_status ffi_prep_cif_machdep(ffi_cif *cif)
   return FFI_OK;
 }
 
-#ifdef _WIN32
+#if !defined(_M_ARM)
+#if defined(_WIN32)
 extern int
 ffi_call_x86(void (*)(char *, extended_cif *), 
 	     /*@out@*/ extended_cif *, 
@@ -194,7 +195,7 @@ ffi_call_x86(void (*)(char *, extended_cif *),
 	     /*@out@*/ unsigned *, 
 	     void (*fn)());
 #endif
-
+#endif
 #ifdef _WIN64
 extern int
 ffi_call_AMD64(void (*)(char *, extended_cif *),
@@ -231,6 +232,7 @@ ffi_call(/*@dependent@*/ ffi_cif *cif,
   
   switch (cif->abi) 
     {
+#if !defined(_M_ARM)
 #if !defined(_WIN64)
     case FFI_SYSV:
     case FFI_STDCALL:
@@ -255,7 +257,7 @@ ffi_call(/*@dependent@*/ ffi_cif *cif,
       /*@=usedef@*/
       break;
 #endif
-
+#endif
     default:
       FFI_ASSERT(0);
       break;
@@ -302,7 +304,7 @@ ffi_closure_SYSV (ffi_closure *closure, char *argp)
 
   rtype = cif->flags;
 
-#if defined(_WIN32) && !defined(_WIN64)
+#if defined(_WIN32) && !defined(_WIN64) && !defined(_M_ARM)
 #ifdef _MSC_VER
   /* now, do a generic return based on the value of rtype */
   if (rtype == FFI_TYPE_INT)
@@ -364,7 +366,7 @@ ffi_closure_SYSV (ffi_closure *closure, char *argp)
 #endif
 #endif
 
-#ifdef _WIN64
+#if defined (_WIN64) || defined (M_ARM)
   /* The result is returned in rax.  This does the right thing for
      result types except for floats; we have to 'mov xmm0, rax' in the
      caller to correct this.

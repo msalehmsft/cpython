@@ -68,7 +68,7 @@ HRESULT FilenameListCchLengthW(LPCWSTR pszSource, size_t cchMax, size_t *pcchLen
 }
 
 HRESULT FilenameListCchCopyA(STRSAFE_LPSTR pszDest, size_t cchDest, LPCSTR pszSource, LPCSTR pszSeparator) {
-    HRESULT hr = S_OK;
+	HRESULT hr = S_OK;
     size_t count = 0;
     size_t length = 0;
 

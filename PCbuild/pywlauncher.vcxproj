@@ -116,9 +116,10 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'!='ARM'">version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

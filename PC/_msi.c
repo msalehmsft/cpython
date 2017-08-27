@@ -3,6 +3,8 @@
  * Licensed to PSF under a contributor agreement.
  */
 
+#if !defined (_M_ARM)
+
 #include <Python.h>
 #include <fci.h>
 #include <fcntl.h>
@@ -1086,3 +1088,5 @@ PyInit__msi(void)
     PyModule_AddObject(m, "MSIError", MSIError);
     return m;
 }
+
+#endif
