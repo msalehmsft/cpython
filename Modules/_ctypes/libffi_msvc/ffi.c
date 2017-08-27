@@ -186,8 +186,8 @@ ffi_status ffi_prep_cif_machdep(ffi_cif *cif)
   return FFI_OK;
 }
 
-#if !defined(_M_ARM)
-#if defined(_WIN32)
+#ifndef _M_ARM
+#ifdef _WIN32
 extern int
 ffi_call_x86(void (*)(char *, extended_cif *), 
 	     /*@out@*/ extended_cif *, 

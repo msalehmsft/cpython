@@ -445,7 +445,10 @@
       <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup>    
+    <ClCompile Include="..\Modules\_asynciomodule.c">
+      <Filter>Modules</Filter>
+    </ClCompile> 
     <ClCompile Include="..\Modules\_bisectmodule.c">
       <Filter>Modules</Filter>
     </ClCompile>
@@ -998,10 +1001,5 @@
     <ClCompile Include="..\Objects\odictobject.c">
       <Filter>Objects</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\PC\python_nt.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -70,7 +70,4 @@
     </ClCompile>
     <ClCompile Include="..\Modules\expat\loadlibrary.c" />
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\PC\python_nt.rc" />
-  </ItemGroup>
 </Project>
