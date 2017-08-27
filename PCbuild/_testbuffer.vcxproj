@@ -116,7 +116,7 @@
   <ItemDefinitionGroup>
     <Link>
       <BaseAddress>0x1e1F0000</BaseAddress>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

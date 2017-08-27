@@ -123,7 +123,7 @@
       <ModuleDefinitionFile Condition="$(Configuration) != 'Debug'">$(PySourcePath)PC\python3.def</ModuleDefinitionFile>
       <ModuleDefinitionFile Condition="$(Configuration) == 'Debug'">$(IntDir)python3_d.def</ModuleDefinitionFile>
       <EntryPointSymbol>DllMain</EntryPointSymbol>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
     <PreLinkEvent>
       <Command>lib /nologo /def:"$(IntDir)python3stub.def" /out:"$(OutDir)$(TargetName)stub.lib" /MACHINE:$(_Machine)</Command>

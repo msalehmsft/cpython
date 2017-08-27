@@ -120,7 +120,7 @@
       <AdditionalDependencies>onecoreuap.lib;advapi32.lib;OleAut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <BaseAddress>0x1D1A0000</BaseAddress>
       <AdditionalOptions>/EXPORT:DllGetClassObject,PRIVATE /EXPORT:DllCanUnloadNow,PRIVATE %(AdditionalOptions)</AdditionalOptions>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

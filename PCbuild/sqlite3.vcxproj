@@ -126,7 +126,7 @@
       <PreprocessorDefinitions>SQLITE_VERSION=$(SqliteVersion);SQLITE_MAJOR_VERSION=$(SqliteMajorVersion);SQLITE_MINOR_VERSION=$(SqliteMinorVersion);SQLITE_MICRO_VERSION=$(SqliteMicroVersion);SQLITE_PATCH_VERSION=$(SqlitePatchVersion);%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
