@@ -119,7 +119,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(OutDir)/liblzma$(PyDebugExt).lib</AdditionalDependencies>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

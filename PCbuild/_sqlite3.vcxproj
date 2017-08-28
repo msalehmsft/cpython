@@ -119,7 +119,7 @@
     </ClCompile>
     <Link>
       <BaseAddress>0x1e180000</BaseAddress>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

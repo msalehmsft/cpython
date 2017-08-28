@@ -135,6 +135,9 @@ const char *mpd_version(void);
   #elif defined(__x86_64__)
     #define CONFIG_64
     #define ASM
+  #elif defined(_M_ARM)
+    #define CONFIG_32
+    #define ANSI
   #else
     #error "unknown architecture for universal build."
   #endif
@@ -181,7 +184,7 @@ typedef int64_t mpd_ssize_t;
 
 
 /* BEGIN CONFIG_32 */
-#elif defined(CONFIG_32) || defined(CONFIG_ARM)
+#elif defined(CONFIG_32)
 /* types for modular and base arithmetic */
 #define MPD_UINT_MAX UINT32_MAX
 #define MPD_BITS_PER_UINT 32

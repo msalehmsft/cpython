@@ -115,20 +115,23 @@
       <PreprocessorDefinitions>_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>version.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'!='ARM'">version.lib;shlwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <ModuleDefinitionFile>..\PC\pyshellext$(PyDebugExt).def</ModuleDefinitionFile>
-      <TargetMachine Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MachineARM</TargetMachine>
+      <ModuleDefinitionFile Condition="'$(Platform)'!='ARM'">..\PC\pyshellext$(PyDebugExt).def</ModuleDefinitionFile>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
     <Midl>
       <CompileInterface>true</CompileInterface>
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\PC\pyshellext.cpp" />
+    <ClCompile Include="..\PC\pyshellext.cpp" >
+      <ExcludedFromBuild Condition="'$(Platform)'=='ARM'">true</ExcludedFromBuild>
+    </ClCompile>
     <Midl Include="..\PC\pyshellext.idl" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(Platform)'!='ARM'">
     <None Include="..\PC\pyshellext.def" />
     <None Include="..\PC\pyshellext_d.def" />
   </ItemGroup>
