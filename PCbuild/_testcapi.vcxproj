@@ -113,12 +113,6 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
   </PropertyGroup>
-  <ItemDefinitionGroup>
-    <Link>
-      <BaseAddress>0x1e1F0000</BaseAddress>
-      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Modules\_testcapimodule.c" />
   </ItemGroup>
@@ -131,6 +125,11 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -118,7 +118,6 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;USE_PYEXPAT_CAPI;XML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <BaseAddress>0x1D100000</BaseAddress>
       <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

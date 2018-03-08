@@ -117,7 +117,6 @@
       <AdditionalIncludeDirectories>..\Modules\_ctypes\libffi_msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <BaseAddress>0x1D1A0000</BaseAddress>
       <AdditionalOptions>/EXPORT:DllGetClassObject,PRIVATE /EXPORT:DllCanUnloadNow,PRIVATE %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>

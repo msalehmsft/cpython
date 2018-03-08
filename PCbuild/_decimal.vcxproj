@@ -121,7 +121,6 @@
       <AdditionalIncludeDirectories>..\Modules\_decimal;..\Modules\_decimal\libmpdec;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <BaseAddress>0x1D1A0000</BaseAddress>
       <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
       <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>

@@ -118,7 +118,6 @@
       <PreprocessorDefinitions>MODULE_NAME="sqlite3";%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <BaseAddress>0x1e180000</BaseAddress>
       <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

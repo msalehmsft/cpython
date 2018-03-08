@@ -113,12 +113,6 @@
   <PropertyGroup>
     <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
   </PropertyGroup>
-  <ItemDefinitionGroup>
-    <Link>
-      <BaseAddress>0x1e1F0000</BaseAddress>
-      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Modules\_testbuffer.c" />
   </ItemGroup>
@@ -130,6 +124,11 @@
       <Project>{cf7ac3d1-e2df-41d2-bea6-1e2556cdea26}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -118,9 +118,8 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions);Py_LIMITED_API=0x03060000</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalDependencies Condition="'$(Platform)'!='ARM'">wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <BaseAddress>0x1D110000</BaseAddress>
+      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Platform)'=='ARM'">onecoreuap.lib</AdditionalDependencies>
       <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

@@ -111,7 +111,6 @@
   <ItemDefinitionGroup>
     <Link>
       <StackReserveSize>2000000</StackReserveSize>
-      <BaseAddress>0x1d000000</BaseAddress>
       <TargetMachine Condition="'$(Platform)'=='ARM'">MachineARM</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
